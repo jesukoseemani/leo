@@ -52,10 +52,13 @@ const App = () => {
   const viewTrailer = (movie) => {
     getMovie(movie.id);
     if (!videoKey) setOpen(true);
+    // sstOpen is called twice, it might consider removing this second call because it might be redundant.
     setOpen(true);
   };
 
   const getMovie = async (id) => {
+    //Consider using try and catch for better error handling.
+    // Seems the id might not be defined at some point. Consider doing a check on the id.
     const URL = `${ENDPOINT}/movie/${id}?api_key=${API_KEY}&append_to_response=videos`;
 
     setVideoKey(null);
