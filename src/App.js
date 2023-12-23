@@ -75,7 +75,7 @@ const App = () => {
   }, []);
 
   // Ideally, it's better to keep the entry file clean as possible. We can manage every business logic outside of here...
-  // Create a global layout that will handle the header component
+  // Create a global layout that will handle the header component and since we make use of router@6, consider taking advantage of Outlet component
 
   return (
     <div className="App">
