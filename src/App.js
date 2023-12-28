@@ -52,7 +52,7 @@ const App = () => {
   const viewTrailer = (movie) => {
     getMovie(movie.id);
     if (!videoKey) setOpen(true);
-    // sstOpen is called twice, it might consider removing this second call because it might be redundant.
+    // setOpen is called twice, it might consider removing this second call because it might be redundant.
     setOpen(true);
   };
 
@@ -62,6 +62,7 @@ const App = () => {
     const URL = `${ENDPOINT}/movie/${id}?api_key=${API_KEY}&append_to_response=videos`;
 
     setVideoKey(null);
+//There is no reason to default setVideoKey to null, it can be done upon creating it.
     const videoData = await fetch(URL).then((response) => response.json());
 
     if (videoData.videos && videoData.videos.results.length) {
