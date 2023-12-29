@@ -80,6 +80,7 @@ const Movie = ({ movie, viewTrailer, closeCard }) => {
                 Watch Later
               </button>
             ) : (
+        // Consider not passing the movie to removeFromWatchLater since it takes in just the ID
               <button
                 type="button"
                 data-testid="remove-watch-later"
