@@ -1,0 +1,38 @@
+@use "../../scss/" as *;
+
+.page-list-header {
+  @include flex(row, center, space-between);
+  width: 100%;
+  margin-top: 20px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  @include extraLargeScreen {
+    padding: 0 20px;
+  }
+}
+
+.page-list-heading {
+  color: #fff;
+  font-family: $font-family-sec;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.page-list-banner {
+  margin-bottom: 20px;
+  @include extraLargeScreen {
+    padding: 0 20px;
+  }
+}
+
+.page-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+  grid-gap: 3rem;
+  margin-bottom: 20px;
+
+  @include extraLargeScreen {
+    padding: 0 20px;
+  }
+}

@@ -1,0 +1,64 @@
+@use "../../scss/" as *;
+
+.movie-header-wrapper {
+  height: 450px;
+  width: 100%;
+  padding: 60px 40px 40px 40px;
+
+  @include largeScreen {
+    padding: 30px 40px 40px 40px;
+  }
+  @include smallScreen {
+    padding: 60px 20px 40px 20px;
+  }
+}
+.movie-header-genre {
+  @include flex(row, center, flex-start);
+  gap: 10px;
+}
+
+.movie-header-paragraph {
+  color: $white;
+  font-family: $font-family-sec;
+  font-size: 18px;
+  font-weight: 500;
+
+  @include smallScreen {
+    font-size: 14px;
+  }
+}
+
+.movie-header-heading {
+  color: $white;
+  font-family: $font-family-primary;
+  font-size: 65px;
+  font-weight: 800;
+
+  @include smallScreen {
+    font-size: 40px;
+  }
+}
+
+.movie-header-fade {
+  color: #a7a6a6;
+  font-family: $font-family-sec;
+  font-size: 16px;
+  font-weight: 400;
+  width: 60%;
+
+  @include largeScreen {
+    width: 80%;
+  }
+
+  @include smallScreen {
+    font-size: 14px;
+    width: 100%;
+  }
+}
+
+.movie-header-button {
+  @include flex(row, center, flex-start);
+
+  gap: 10px;
+  margin-top: 30px;
+}

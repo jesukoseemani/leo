@@ -1,0 +1,12 @@
+@use "../../scss/" as *;
+
+.empty-state {
+  @include flex(column, center, center);
+  margin-top: 40px;
+  p {
+    color: $white;
+    font-family: $font-family-sec;
+    font-size: 24px;
+    font-weight: 400;
+  }
+}

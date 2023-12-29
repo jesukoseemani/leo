@@ -1,0 +1,31 @@
+//GLOBAL VARIABLES
+
+$body-bg: hsla(224, 39%, 11.6%, 1);
+$txt-color: #fff;
+
+$white: #fff;
+$black: #000;
+$red: #d40d1f;
+
+$sm-width: 640px;
+$md-width: 768px;
+$lg-width: 1024px;
+$xl-width: 1280px;
+
+$font-family-primary: "Dokdo", sans-serif;
+$font-family-sec: "DM Sans", sans-serif;
+$secondary-hue: 25;
+
+$toast-success-hue: 150;
+$toast-failure-hue: 20;
+$toast-warning-hue: 205;
+$toast-padding: 1.5em;
+$toast-margin: 0.5em;
+$toast-bg-color-fallback: hsl(25 15% 100%);
+$toast-text-color-fallback: hsl(25 10% 25%);
+$toast-opacity: 0.99;
+$toast-content-gap: 1em;
+$toast-speed: 250ms;
+$toast-list-scrollbar-width: 0.35em;
+$toast-list-width: 400px;
+$toast-list-padding: 1em;

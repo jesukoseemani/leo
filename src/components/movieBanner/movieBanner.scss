@@ -1,0 +1,51 @@
+@use "../../scss/" as *;
+
+.movie-banner-wrapper {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  padding: 8px;
+  border-radius: 12px;
+  background: rgba(32, 40, 62, 0.8);
+  backdrop-filter: blur(40px);
+}
+
+.movie-banner-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+
+.movie-banner-button {
+  position: absolute;
+  bottom: 100px;
+  left: 35px;
+}
+
+.movie-banner-rating {
+  @include flex(row, center, flex-start);
+  width: 260px;
+  height: 40px;
+  padding-left: 10px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  color: #ffad49;
+  position: absolute;
+  top: 20px;
+  left: 35px;
+}
+
+.movie-banner-title {
+  color: #ebeef5;
+  font-family: $font-family-primary;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 24px 0 0 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
