@@ -2,9 +2,9 @@ import React from "react";
 import SearchInput from "../searchInput/SearchInput";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import HamburgerMenu from "../hamburgerMenu/HamburgerMenu";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import "./navbar.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies } from "../../store/moviesSlice";
 import {
   ENDPOINT_DISCOVER,
@@ -14,6 +14,11 @@ import {
 function Navbar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
+  const { pathname } = location;
+  const { starredMovies } = useSelector((state) => state.starred);
+  const { watchLaterMovies } = useSelector((state) => state.watchLater);
+
   const routeToHome = () => {
     navigate("/movies");
   };
@@ -36,14 +41,20 @@ function Navbar() {
         </div>
         <div className="nav-link-wrapper">
           <NavLink
-            activeClassName="active"
+            activeclassname="active"
             className="nav-link"
             to="/favourites"
           >
             FAVOURITES
+            {starredMovies?.length > 0 && pathname !== "/favourites" && (
+              <span className="number-tag">{starredMovies?.length}</span>
+            )}
           </NavLink>
           <NavLink className="nav-link" to="/watch-later">
             WATCH LATER
+            {watchLaterMovies?.length > 0 && pathname !== "/watch-later" && (
+              <span className="number-tag">{watchLaterMovies?.length}</span>
+            )}
           </NavLink>
         </div>
         <div className="nav-link-hamburger">

@@ -1,8 +1,8 @@
-import toastSlice from '../store/toastSlice'
+import { removeToast, showToast } from '../store/toastSlice'
 import { useDispatch } from 'react-redux';
 
 function useToast() {
-    const { showToast, removeToast } = toastSlice.actions
+
     const dispatch = useDispatch();
 
     const handleShowToast = ({ id, message, type, position, autoClose = true, autoCloseDuration = 2000 }) => {

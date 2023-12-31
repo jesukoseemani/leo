@@ -4,25 +4,27 @@ import Button from "../button/Button";
 import AddIcon from "../icons/AddIcon";
 import PlayIcon from "../icons/PlayIcon";
 import LoveIcon from "../icons/LoveIcon";
-import { IMAGEURL_PATH } from "../../services/apiHandler";
+import {
+  BACKDROPIMAGEURL_PATH,
+  IMAGEURL_PATH,
+} from "../../services/apiHandler";
 import { useDispatch, useSelector } from "react-redux";
-import modalSlice from "../../store/modalSlice";
+import { openModal } from "../../store/modalSlice";
 import RemoveIcon from "../icons/RemoveIcon";
 import { findProp } from "../../utils/helperFunction";
-import watchLaterSlice from "../../store/watchLaterSlice";
+import {
+  addToWatchLater,
+  removeFromWatchLater,
+} from "../../store/watchLaterSlice";
 import useToast from "../../hooks/useToast";
-import starredSlice from "../../store/starredSlice";
+import { starMovie, unstarMovie } from "../../store/starredSlice";
 
 import "./movieCard.scss";
 import DeleteIcon from "../icons/DeleteIcon";
 
-function MovieCard({ movie, handler = "general" }) {
+function MovieCard({ movie, handler = "general", data }) {
   const dispatch = useDispatch();
   const handleShowToast = useToast();
-
-  const { openModal } = modalSlice.actions;
-  const { addToWatchLater, removeFromWatchLater } = watchLaterSlice.actions;
-  const { starMovie, unstarMovie } = starredSlice.actions;
 
   const { watchLaterMovies } = useSelector((state) => state.watchLater);
   const { starredMovies } = useSelector((state) => state.starred);
@@ -35,13 +37,13 @@ function MovieCard({ movie, handler = "general" }) {
     const state = findProp(starredMovies, movie?.id);
 
     setIsInFavList(state);
-  }, [isInFavList, starredMovies]);
+  }, [isInFavList, starredMovies, movie?.id]);
 
   useEffect(() => {
     const state = findProp(watchLaterMovies, movie?.id);
 
     setIsInList(state);
-  }, [isInList, watchLaterMovies]);
+  }, [isInList, watchLaterMovies, movie?.id]);
 
   const handleLike = () => {
     setLike(true);
@@ -114,10 +116,14 @@ function MovieCard({ movie, handler = "general" }) {
       <div className="movie-image-wrapper">
         <img
           className="movie-image"
-          src={`${IMAGEURL_PATH}${movie?.poster_path}`}
+          src={
+            data?.length <= 4
+              ? `${BACKDROPIMAGEURL_PATH}${movie?.backdrop_path}`
+              : `${IMAGEURL_PATH}${movie?.poster_path}`
+          }
           alt=""
         />
-        <div className="movie-desc">
+        <div className={`movie-desc ${handler !== "general" && "movie-index"}`}>
           <div className="movie-rating">
             <RatingIcon />
             &nbsp;{movie?.vote_average}

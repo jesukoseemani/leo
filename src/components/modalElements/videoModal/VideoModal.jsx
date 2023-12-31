@@ -3,7 +3,6 @@ import { useFetch } from "../../../hooks/useFetch";
 import { ENDPOINT_MOVIE } from "../../../services/apis/movieListApi";
 import YoutubePlayer from "../../reactPlayer/YoutubePlayer";
 import ModalCloseIcon from "../../icons/ModalCloseIcon";
-import Skeleton from "../../skeleton/Skeleton";
 import "./videoModal.scss";
 
 function VideoModal({ id, onClose }) {

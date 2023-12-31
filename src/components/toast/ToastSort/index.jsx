@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import "./toastSort.scss";
 import ToastCard from "../ToastCard";
-import toastSlice from "../../../store/toastSlice";
+import { removeToast } from "../../../store/toastSlice";
 import { useDispatch } from "react-redux";
 
 const ToastSort = ({ data, position }) => {
   const sortRef = useRef(null);
-  const { removeToast } = toastSlice.actions;
 
   const dispatch = useDispatch();
 

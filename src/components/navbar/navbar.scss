@@ -49,6 +49,7 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer !important;
+  position: relative;
 }
 
 .nav-link-hamburger {
@@ -61,4 +62,17 @@
 
 .active {
   color: #7c6df6 !important;
+}
+
+.number-tag {
+  @include flex(row, center, center);
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: $white;
+  color: #7c6df6;
+  font-size: 16px;
+  position: absolute;
+  top: -8px;
+  left: -8px;
 }

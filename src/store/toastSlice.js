@@ -24,5 +24,6 @@ const toastSlice = createSlice({
         },
     },
 });
+export const { showToast, removeToast } = toastSlice.actions
 
 export default toastSlice;

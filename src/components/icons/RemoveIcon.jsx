@@ -13,15 +13,15 @@ function RemoveIcon() {
         d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z"
         fill="none"
         stroke="white"
-        stroke-miterlimit="10"
-        stroke-width="32"
+        strokeMiterlimit="10"
+        strokeWidth="32"
       />
       <path
         fill="none"
         stroke="white"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="32"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="32"
         d="M336 256H176"
       />
     </svg>

@@ -5,8 +5,11 @@ import PlayIcon from "../icons/PlayIcon";
 import AddIcon from "../icons/AddIcon";
 import { BACKDROPIMAGEURL_PATH } from "../../services/apiHandler";
 import { useDispatch, useSelector } from "react-redux";
-import watchLaterSlice from "../../store/watchLaterSlice";
-import modalSlice from "../../store/modalSlice";
+import {
+  addToWatchLater,
+  removeFromWatchLater,
+} from "../../store/watchLaterSlice";
+import { openModal } from "../../store/modalSlice";
 import useToast from "../../hooks/useToast";
 import { findProp } from "../../utils/helperFunction";
 import RemoveIcon from "../icons/RemoveIcon";
@@ -17,8 +20,7 @@ function MovieHeader({ data }) {
   const handleShowToast = useToast();
   const [isInList, setIsInList] = useState(true);
   const { watchLaterMovies } = useSelector((state) => state.watchLater);
-  const { addToWatchLater, removeFromWatchLater } = watchLaterSlice.actions;
-  const { openModal } = modalSlice.actions;
+
   const IMAGESTYLE = {
     background: `linear-gradient(rgba(18, 24, 41, 0.7), rgba(18, 24, 41, 0.7)), url(${BACKDROPIMAGEURL_PATH}${data?.backdrop_path}) center/cover no-repeat`,
   };
@@ -26,7 +28,7 @@ function MovieHeader({ data }) {
     const state = findProp(watchLaterMovies, data?.id);
 
     setIsInList(state);
-  }, [isInList, watchLaterMovies]);
+  }, [isInList, watchLaterMovies, data?.id]);
 
   const watchLaterHandler = () => {
     if (isInList) {

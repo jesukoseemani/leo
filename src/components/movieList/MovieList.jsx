@@ -6,8 +6,7 @@ import Skeleton from "../../components/skeleton/Skeleton";
 
 import "./movieList.scss";
 
-function MovieList({ fetchStatus, movies }) {
-  const { results } = movies;
+const MovieList = React.forwardRef(({ fetchStatus, movies }, lastMovieRef) => {
   return (
     <ContentWrapper>
       <div className="movie-list-header">
@@ -15,8 +14,8 @@ function MovieList({ fetchStatus, movies }) {
         <GridIcon />
       </div>
       <div className="movie-list-grid">
-        {results?.map((movie) =>
-          !fetchStatus ? (
+        {movies?.map((movie, i, movies) =>
+          fetchStatus === "loading" ? (
             <Skeleton
               styleObj={{
                 height: "480px",
@@ -25,12 +24,17 @@ function MovieList({ fetchStatus, movies }) {
               }}
             />
           ) : (
-            <MovieCard movie={movie} handler="general" />
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+              handler="general"
+              ref={movie.length - 1 === i ? lastMovieRef : null}
+            />
           )
         )}
       </div>
     </ContentWrapper>
   );
-}
+});
 
 export default MovieList;

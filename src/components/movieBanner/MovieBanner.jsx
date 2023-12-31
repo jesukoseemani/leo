@@ -5,11 +5,10 @@ import PlayIcon from "../icons/PlayIcon";
 import RatingIcon from "../icons/RatingIcon";
 import { BACKDROPIMAGEURL_PATH } from "../../services/apiHandler";
 import { useDispatch } from "react-redux";
-import modalSlice from "../../store/modalSlice";
+import { openModal } from "../../store/modalSlice";
 
 function MovieBanner({ movie }) {
   const dispatch = useDispatch();
-  const { openModal } = modalSlice.actions;
 
   const streamHandler = () => {
     dispatch(

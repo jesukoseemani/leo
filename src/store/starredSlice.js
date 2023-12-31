@@ -26,4 +26,7 @@ const starredSlice = createSlice({
     },
 })
 
+export const { starMovie, unstarMovie, clearAllStarred } = starredSlice.actions
+
+
 export default starredSlice

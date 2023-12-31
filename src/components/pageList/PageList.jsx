@@ -5,8 +5,14 @@ import MovieCard from "../../components/movieCard/MovieCard";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import EmptyState from "../../components/emptyState/EmptyState";
 import "./pageList.scss";
+import { useDispatch } from "react-redux";
 
-function PageList({ data, handler }) {
+function PageList({ data, handler, onClear }) {
+  const dispatch = useDispatch();
+
+  const clearHandler = () => {
+    dispatch(onClear());
+  };
   const STYLES = {
     color: "white",
     fontSize: "14px",
@@ -20,7 +26,12 @@ function PageList({ data, handler }) {
       <div className="page-list-header">
         <h3 className="page-list-heading">{handler}</h3>
         {data.length > 0 && (
-          <Button title="Clear All" iconState={false} style={STYLES} />
+          <Button
+            onClick={clearHandler}
+            title="Clear All"
+            iconState={false}
+            style={STYLES}
+          />
         )}
       </div>
 
@@ -36,9 +47,11 @@ function PageList({ data, handler }) {
           </div>
 
           <div className="page-list-grid">
-            {data?.map((movie) => (
-              <MovieCard movie={movie} handler={handler} />
-            ))}
+            {data
+              ?.filter((_, i) => i !== 0)
+              .map((movie) => (
+                <MovieCard movie={movie} handler={handler} data={data} />
+              ))}
           </div>
         </>
       )}
