@@ -3,6 +3,8 @@ import { useFetch } from "../../../hooks/useFetch";
 import { ENDPOINT_MOVIE } from "../../../services/apis/movieListApi";
 import YoutubePlayer from "../../reactPlayer/YoutubePlayer";
 import ModalCloseIcon from "../../icons/ModalCloseIcon";
+import PropTypes from "prop-types";
+
 import "./videoModal.scss";
 
 function VideoModal({ id, onClose }) {
@@ -32,5 +34,10 @@ function VideoModal({ id, onClose }) {
     </div>
   );
 }
+
+VideoModal.propTypes = {
+  id: PropTypes.number.isRequired,
+  onClose: PropTypes.func.isRequired,
+};
 
 export default VideoModal;

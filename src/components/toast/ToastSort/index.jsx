@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import "./toastSort.scss";
 import ToastCard from "../ToastCard";
 import { removeToast } from "../../../store/toastSlice";
 import { useDispatch } from "react-redux";
+import PropTypes from "prop-types";
+
+import "./toastSort.scss";
 
 const ToastSort = ({ data, position }) => {
   const sortRef = useRef(null);
@@ -48,6 +50,16 @@ const ToastSort = ({ data, position }) => {
 
 ToastSort.defaultProps = {
   position: "top-right",
+};
+
+ToastSort.propTypes = {
+  position: PropTypes.oneOf([
+    "top-right",
+    "top-left",
+    "bottom-right",
+    "bottom-left",
+  ]).isRequired,
+  data: PropTypes.array,
 };
 
 export default ToastSort;

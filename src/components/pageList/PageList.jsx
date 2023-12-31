@@ -4,8 +4,10 @@ import MovieBanner from "../../components/movieBanner/MovieBanner";
 import MovieCard from "../../components/movieCard/MovieCard";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import EmptyState from "../../components/emptyState/EmptyState";
-import "./pageList.scss";
 import { useDispatch } from "react-redux";
+import PropTypes from "prop-types";
+
+import "./pageList.scss";
 
 function PageList({ data, handler, onClear }) {
   const dispatch = useDispatch();
@@ -63,5 +65,20 @@ function PageList({ data, handler, onClear }) {
     </ContentWrapper>
   );
 }
+
+PageList.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      overview: PropTypes.string,
+      poster_path: PropTypes.string,
+      title: PropTypes.string,
+      vote_average: PropTypes.number,
+      backdrop_path: PropTypes.string,
+    })
+  ),
+  handler: PropTypes.oneOf(["favourite", "watchlist"]).isRequired,
+  onClear: PropTypes.func.isRequired,
+};
 
 export default PageList;

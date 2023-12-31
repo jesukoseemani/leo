@@ -5,15 +5,16 @@ import { useDispatch, useSelector } from "react-redux";
 import MovieHeader from "../../components/movieHeader/MovieHeader";
 import { isEmpty } from "../../utils/helperFunction";
 import MovieList from "../../components/movieList/MovieList";
-// import useToast from "../../hooks/useToast";
+import ScrollToTop from "../../components/scrollToTop/ScrollToTop";
+import useScroll from "../../hooks/useScroll";
 
 function Movies() {
   const dispatch = useDispatch();
+  const scroll = useScroll();
   const effectRan = useRef(false);
 
   const { movies, fetchStatus, page } = useSelector((state) => state.movies);
 
-  // const handleShowToast = useToast();
   useEffect(() => {
     if (effectRan.current === false) {
       dispatch(fetchMovies(ENDPOINT_DISCOVER(page)));
@@ -28,22 +29,14 @@ function Movies() {
     dispatch(fetchMovies(ENDPOINT_DISCOVER(page + 1)));
   };
 
-  useEffect(() => {
-    console.log(fetchStatus);
-    // handleShowToast({
-    //   message: "Could not fetch the data",
-    //   type: "failure",
-    //   id: Date.now(),
-    // });
-  }, [fetchStatus]);
-
   return (
     <>
       <MovieHeader
-        data={isEmpty(movies) ? [] : movies[0]}
+        data={isEmpty(movies) ? {} : movies[0]}
         fetchStatus={fetchStatus}
       />
       <MovieList loadMorePage={loadMorePage} />
+      <ScrollToTop scroll={scroll} />
     </>
   );
 }

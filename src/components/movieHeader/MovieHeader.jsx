@@ -13,8 +13,10 @@ import { openModal } from "../../store/modalSlice";
 import useToast from "../../hooks/useToast";
 import { findProp } from "../../utils/helperFunction";
 import RemoveIcon from "../icons/RemoveIcon";
-import "./movieHeader.scss";
+import PropTypes from "prop-types";
 import Skeleton from "../skeleton/Skeleton";
+
+import "./movieHeader.scss";
 
 function MovieHeader({ data, fetchStatus }) {
   const dispatch = useDispatch();
@@ -86,7 +88,11 @@ function MovieHeader({ data, fetchStatus }) {
           <div className="movie-header-genre">
             <p className="movie-header-paragraph">{data?.release_date}</p>
           </div>
-          <p className="movie-header-fade">{data?.overview}</p>
+          <p className="movie-header-fade">
+            {data?.overview?.length > 430
+              ? `${data?.overview?.substring(0, 430)}...`
+              : data?.overview}
+          </p>
           <div className="movie-header-rating">
             <MovieRating rating={data?.vote_average} />
           </div>
@@ -135,5 +141,19 @@ function MovieHeader({ data, fetchStatus }) {
     </>
   );
 }
+
+MovieHeader.propTypes = {
+  data: PropTypes.shape({
+    id: PropTypes.number,
+    overview: PropTypes.string,
+    poster_path: PropTypes.string,
+    title: PropTypes.string,
+    vote_average: PropTypes.number,
+    backdrop_path: PropTypes.string,
+    release_date: PropTypes.string,
+  }),
+  fetchStatus: PropTypes.oneOf(["success", "loading", "error", "idle"])
+    .isRequired,
+};
 
 export default MovieHeader;

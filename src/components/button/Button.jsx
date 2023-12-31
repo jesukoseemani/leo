@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 function Button({
   iconState = false,
@@ -40,5 +41,25 @@ function Button({
     </button>
   );
 }
+
+Button.defaultProps = {
+  iconState: false,
+};
+
+Button.propTypes = {
+  iconState: PropTypes.bool,
+  iconPosition: PropTypes.string,
+  icon: PropTypes.element,
+  title: PropTypes.string.isRequired,
+  style: PropTypes.shape({
+    color: PropTypes.string,
+    fontSize: PropTypes.string,
+    width: PropTypes.string,
+    height: PropTypes.string,
+    radius: PropTypes.string,
+    background: PropTypes.string,
+  }),
+  onClick: PropTypes.func,
+};
 
 export default Button;

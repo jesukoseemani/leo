@@ -3,7 +3,6 @@ import SearchInput from "../searchInput/SearchInput";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import HamburgerMenu from "../hamburgerMenu/HamburgerMenu";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
-import "./navbar.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies } from "../../store/moviesSlice";
 import {
@@ -11,6 +10,7 @@ import {
   ENDPOINT_SEARCH,
 } from "../../services/apis/movieListApi";
 
+import "./navbar.scss";
 function Navbar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -24,10 +24,12 @@ function Navbar() {
   };
 
   const onSearch = (query) => {
-    if (query.length > 1) {
-      dispatch(fetchMovies(ENDPOINT_SEARCH(query)));
-    } else {
-      dispatch(fetchMovies(ENDPOINT_DISCOVER));
+    if (query) {
+      if (query.length > 1) {
+        dispatch(fetchMovies(ENDPOINT_SEARCH(query)));
+      } else {
+        dispatch(fetchMovies(ENDPOINT_DISCOVER));
+      }
     }
   };
   return (

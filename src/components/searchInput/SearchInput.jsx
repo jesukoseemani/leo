@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./SearchInput.scss";
 import useDebounce from "../../hooks/useDebounce";
 import SearchIcon from "../icons/SearchIcon";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
 function SearchInput({ onSearch }) {
   const navigate = useNavigate();
-  const [searchValue, setSearchValue] = useState("");
-  const debouncedSearchValue = useDebounce(searchValue, 300);
+  const { pathname } = useLocation();
+
+  const [searchParams, setSearchParams] = useSearchParams({});
+  const value = searchParams.get("query");
+
+  const debouncedSearchValue = useDebounce(value, 300);
 
   const handleFocus = () => {
-    navigate("/movies");
+    pathname !== "/movies" && navigate("/movies");
   };
 
   useEffect(() => {
@@ -21,8 +25,8 @@ function SearchInput({ onSearch }) {
     <div className="input-wrapper">
       <input
         type="text"
-        value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value)}
+        value={value ?? ""}
+        onChange={(e) => setSearchParams({ query: e.target.value })}
         placeholder="Search Movies"
         className="input"
         onFocus={handleFocus}

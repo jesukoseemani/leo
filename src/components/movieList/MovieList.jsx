@@ -3,11 +3,12 @@ import GridIcon from "../../components/icons/GridIcon";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import MovieCard from "../../components/movieCard/MovieCard";
 import Skeleton from "../../components/skeleton/Skeleton";
-
-import "./movieList.scss";
+import PropTypes from "prop-types";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 import { useSelector } from "react-redux";
 import { uniqueData } from "../../utils/helperFunction";
+
+import "./movieList.scss";
 
 function MovieList({ loadMorePage }) {
   const { movies, fetchStatus, hasNextPage } = useSelector(
@@ -49,5 +50,9 @@ function MovieList({ loadMorePage }) {
     </ContentWrapper>
   );
 }
+
+MovieList.propTypes = {
+  loadMorePage: PropTypes.func.isRequired,
+};
 
 export default MovieList;

@@ -1,6 +1,7 @@
 import React from "react";
 import Empty from "../../assets/emptyState.svg";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import "./emptyState.scss";
 
@@ -15,5 +16,10 @@ function EmptyState({ desc, title }) {
     </div>
   );
 }
+
+EmptyState.propTypes = {
+  desc: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default EmptyState;

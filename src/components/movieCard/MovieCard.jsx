@@ -18,9 +18,10 @@ import {
 } from "../../store/watchLaterSlice";
 import useToast from "../../hooks/useToast";
 import { starMovie, unstarMovie } from "../../store/starredSlice";
+import PropTypes from "prop-types";
+import DeleteIcon from "../icons/DeleteIcon";
 
 import "./movieCard.scss";
-import DeleteIcon from "../icons/DeleteIcon";
 
 function MovieCard({ movie, handler = "general", data }) {
   const dispatch = useDispatch();
@@ -198,5 +199,23 @@ function MovieCard({ movie, handler = "general", data }) {
     </div>
   );
 }
+
+MovieCard.defaultProps = {
+  handler: "general",
+};
+
+MovieCard.propTypes = {
+  data: PropTypes.array,
+  movie: PropTypes.shape({
+    id: PropTypes.number,
+    overview: PropTypes.string,
+    poster_path: PropTypes.string,
+    title: PropTypes.string,
+    vote_average: PropTypes.number,
+    backdrop_path: PropTypes.string,
+    release_date: PropTypes.string,
+  }),
+  handler: PropTypes.oneOf(["watchlist", "general", "favourites"]).isRequired,
+};
 
 export default MovieCard;

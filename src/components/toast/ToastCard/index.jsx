@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import "./toastCard.scss";
 
 import {
@@ -37,6 +39,12 @@ const ToastCard = ({ message, type, onClose }) => {
 ToastCard.defaultProps = {
   type: "success",
   message: "Successfully fetched",
+};
+
+ToastCard.propTypes = {
+  type: PropTypes.oneOf(["success", "failure", "warning"]).isRequired,
+  message: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default ToastCard;

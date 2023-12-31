@@ -21,6 +21,7 @@ const reducers = combineReducers({
 const persistConfig = {
     key: 'root',
     storage,
+    blacklist: ['movies'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
@@ -32,3 +33,5 @@ const store = configureStore({
 });
 
 export default store
+
+

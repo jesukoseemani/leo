@@ -1,3 +1,4 @@
+
 import { useCallback, useRef } from "react"
 
 export default function useIntersectionObserver(
@@ -5,6 +6,7 @@ export default function useIntersectionObserver(
     deps
 ) {
     const observer = useRef(null)
+
 
     const ref = useCallback(
         (node) => {

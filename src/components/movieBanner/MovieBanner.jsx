@@ -1,11 +1,13 @@
 import React from "react";
-import "./movieBanner.scss";
 import Button from "../button/Button";
 import PlayIcon from "../icons/PlayIcon";
 import RatingIcon from "../icons/RatingIcon";
 import { BACKDROPIMAGEURL_PATH } from "../../services/apiHandler";
 import { useDispatch } from "react-redux";
 import { openModal } from "../../store/modalSlice";
+import PropTypes from "prop-types";
+
+import "./movieBanner.scss";
 
 function MovieBanner({ movie }) {
   const dispatch = useDispatch();
@@ -44,5 +46,16 @@ function MovieBanner({ movie }) {
     </div>
   );
 }
+MovieBanner.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.number,
+    overview: PropTypes.string,
+    poster_path: PropTypes.string,
+    title: PropTypes.string,
+    vote_average: PropTypes.number,
+    backdrop_path: PropTypes.string,
+    release_date: PropTypes.string,
+  }),
+};
 
 export default MovieBanner;
