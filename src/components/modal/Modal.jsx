@@ -15,8 +15,6 @@ function Modal() {
 
   const ModalComponent = getModalComponent(isModalType);
 
-  console.log(ModalComponent);
-
   return ReactDom.createPortal(
     <>
       <div className="overlay" />

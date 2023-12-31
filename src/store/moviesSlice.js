@@ -16,17 +16,20 @@ const moviesSlice = createSlice({
     },
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(fetchMovies.fulfilled, (state, action) => {
-            state.movies = [...state.movies, action.payload.results]
-            state.page = action.payload.page
-            state.totalPage = action.payload.total_pages
-            state.hasNextPage = action.payload.page === action.payload.total_pages ? false : true
-            state.fetchStatus = 'success'
-        }).addCase(fetchMovies.pending, (state) => {
-            state.fetchStatus = 'loading'
-        }).addCase(fetchMovies.rejected, (state) => {
-            state.fetchStatus = 'error'
-        })
+        builder
+            .addCase(fetchMovies.pending, (state) => {
+                state.fetchStatus = 'loading'
+            })
+            .addCase(fetchMovies.fulfilled, (state, action) => {
+                state.movies = [...state.movies, ...action.payload.results]
+                state.page = action.payload.page
+                state.totalPage = action.payload.total_pages
+                state.hasNextPage = action.payload.page === action.payload.total_pages ? false : true
+                state.fetchStatus = 'success'
+            })
+            .addCase(fetchMovies.rejected, (state) => {
+                state.fetchStatus = 'error'
+            })
     }
 })
 

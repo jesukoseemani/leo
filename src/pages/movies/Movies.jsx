@@ -1,20 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { ENDPOINT_DISCOVER } from "../../services/apis/movieListApi";
 import { fetchMovies } from "../../store/moviesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import MovieHeader from "../../components/movieHeader/MovieHeader";
 import { isEmpty } from "../../utils/helperFunction";
 import MovieList from "../../components/movieList/MovieList";
-import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 // import useToast from "../../hooks/useToast";
 
 function Movies() {
   const dispatch = useDispatch();
   const effectRan = useRef(false);
 
-  const { movies, fetchStatus, hasNextPage, page } = useSelector(
-    (state) => state.movies
-  );
+  const { movies, fetchStatus, page } = useSelector((state) => state.movies);
 
   // const handleShowToast = useToast();
   useEffect(() => {
@@ -25,38 +22,28 @@ function Movies() {
         effectRan.current = true;
       };
     }
-  }, [dispatch]);
+  }, [dispatch, page]);
 
-  const isLoading = false;
+  const loadMorePage = () => {
+    dispatch(fetchMovies(ENDPOINT_DISCOVER(page + 1)));
+  };
 
-  const lastMovieRef = useIntersectionObserver(() => {
-    console.log("DID YOU CALL");
-  }, [hasNextPage, isLoading]);
-
-  // useEffect(() => {
-  //   console.log(fetchStatus);
-  //   handleShowToast({
-  //     message: "Could not fetch the data",
-  //     type: "failure",
-  //     id: Date.now(),
-  //   });
-  // }, [fetchStatus]);
+  useEffect(() => {
+    console.log(fetchStatus);
+    // handleShowToast({
+    //   message: "Could not fetch the data",
+    //   type: "failure",
+    //   id: Date.now(),
+    // });
+  }, [fetchStatus]);
 
   return (
     <>
-      <MovieHeader data={isEmpty(movies) ? [] : movies[0]} />
-      {/* <MovieList
+      <MovieHeader
+        data={isEmpty(movies) ? [] : movies[0]}
         fetchStatus={fetchStatus}
-        movies={movies}
-        lastMovieRef={lastMovieRef}
-      /> */}
-      {[...new Array(20)].map((_, i) => (
-        <li ref={lastMovieRef} key={i}>
-          <div style={{ width: "300px", height: "400px", background: "white" }}>
-            ayo
-          </div>
-        </li>
-      ))}
+      />
+      <MovieList loadMorePage={loadMorePage} />
     </>
   );
 }

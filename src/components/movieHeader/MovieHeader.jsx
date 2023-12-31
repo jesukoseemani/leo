@@ -14,15 +14,18 @@ import useToast from "../../hooks/useToast";
 import { findProp } from "../../utils/helperFunction";
 import RemoveIcon from "../icons/RemoveIcon";
 import "./movieHeader.scss";
+import Skeleton from "../skeleton/Skeleton";
 
-function MovieHeader({ data }) {
+function MovieHeader({ data, fetchStatus }) {
   const dispatch = useDispatch();
   const handleShowToast = useToast();
   const [isInList, setIsInList] = useState(true);
   const { watchLaterMovies } = useSelector((state) => state.watchLater);
 
   const IMAGESTYLE = {
-    background: `linear-gradient(rgba(18, 24, 41, 0.7), rgba(18, 24, 41, 0.7)), url(${BACKDROPIMAGEURL_PATH}${data?.backdrop_path}) center/cover no-repeat`,
+    background: data?.backdrop_path
+      ? `linear-gradient(rgba(18, 24, 41, 0.7), rgba(18, 24, 41, 0.7)), url(${BACKDROPIMAGEURL_PATH}${data?.backdrop_path}) center/cover no-repeat`
+      : `linear-gradient(rgba(18, 24, 41, 0.7), rgba(18, 24, 41, 0.7))`,
   };
   useEffect(() => {
     const state = findProp(watchLaterMovies, data?.id);
@@ -66,53 +69,70 @@ function MovieHeader({ data }) {
       })
     );
   };
+
   return (
-    <div style={IMAGESTYLE} className="movie-header-wrapper">
-      <h1 className="movie-header-heading">{data?.title}</h1>
-      <div className="movie-header-genre">
-        <p className="movie-header-paragraph">{data?.release_date}</p>
-      </div>
-      <p className="movie-header-fade">{data?.overview}</p>
-      <div className="movie-header-rating">
-        <MovieRating rating={data?.vote_average} />
-      </div>
-
-      <div className="movie-header-button">
-        <Button
-          title="STREAM NOW"
-          iconState={true}
-          onClick={streamHandler}
-          iconPosition="right"
-          icon={<PlayIcon width="20px" height="20px" />}
-          style={{
-            color: "white",
-            fontSize: "16px",
-            width: "272px",
-            height: "44px",
-            radius: "10px",
-            background: "#D40D1F",
+    <>
+      {fetchStatus === "loading" ? (
+        <Skeleton
+          styleObj={{
+            height: "100%",
+            width: "282px",
+            borderRadius: "4px",
           }}
         />
+      ) : (
+        <div style={IMAGESTYLE} className="movie-header-wrapper">
+          <h1 className="movie-header-heading">{data?.title}</h1>
+          <div className="movie-header-genre">
+            <p className="movie-header-paragraph">{data?.release_date}</p>
+          </div>
+          <p className="movie-header-fade">{data?.overview}</p>
+          <div className="movie-header-rating">
+            <MovieRating rating={data?.vote_average} />
+          </div>
 
-        <Button
-          title="Watchlist"
-          iconState={true}
-          iconPosition="left"
-          onClick={watchLaterHandler}
-          icon={
-            isInList ? <RemoveIcon /> : <AddIcon width="12px" height="12px" />
-          }
-          style={{
-            color: "white",
-            fontSize: "16px",
-            width: "258px",
-            height: "44px",
-            radius: "10px",
-            background: "rgba(249, 249, 249, 0.20)",
-          }}
-        />
-      </div>
-    </div>
+          <div className="movie-header-button">
+            <Button
+              title="STREAM NOW"
+              iconState={true}
+              onClick={streamHandler}
+              iconPosition="right"
+              icon={<PlayIcon width="20px" height="20px" />}
+              style={{
+                color: "white",
+                fontSize: "16px",
+                width: "272px",
+                height: "44px",
+                radius: "10px",
+                background: "#D40D1F",
+              }}
+            />
+
+            <Button
+              title="Watchlist"
+              iconState={true}
+              iconPosition="left"
+              onClick={watchLaterHandler}
+              icon={
+                isInList ? (
+                  <RemoveIcon />
+                ) : (
+                  <AddIcon width="12px" height="12px" />
+                )
+              }
+              style={{
+                color: "white",
+                fontSize: "16px",
+                width: "258px",
+                height: "44px",
+                radius: "10px",
+                background: "rgba(249, 249, 249, 0.20)",
+              }}
+            />
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 

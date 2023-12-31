@@ -5,8 +5,20 @@ import MovieCard from "../../components/movieCard/MovieCard";
 import Skeleton from "../../components/skeleton/Skeleton";
 
 import "./movieList.scss";
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
+import { useSelector } from "react-redux";
+import { uniqueData } from "../../utils/helperFunction";
 
-const MovieList = React.forwardRef(({ fetchStatus, movies }, lastMovieRef) => {
+function MovieList({ loadMorePage }) {
+  const { movies, fetchStatus, hasNextPage } = useSelector(
+    (state) => state.movies
+  );
+  const loading = fetchStatus === "loading";
+  const lastMovieRef = useIntersectionObserver(
+    () => loadMorePage(),
+    [hasNextPage, !loading]
+  );
+
   return (
     <ContentWrapper>
       <div className="movie-list-header">
@@ -14,9 +26,10 @@ const MovieList = React.forwardRef(({ fetchStatus, movies }, lastMovieRef) => {
         <GridIcon />
       </div>
       <div className="movie-list-grid">
-        {movies?.map((movie, i, movies) =>
+        {uniqueData(movies)?.map((movie, i) =>
           fetchStatus === "loading" ? (
             <Skeleton
+              key={movie.id}
               styleObj={{
                 height: "480px",
                 width: "282px",
@@ -24,17 +37,17 @@ const MovieList = React.forwardRef(({ fetchStatus, movies }, lastMovieRef) => {
               }}
             />
           ) : (
-            <MovieCard
+            <div
               key={movie.id}
-              movie={movie}
-              handler="general"
-              ref={movie.length - 1 === i ? lastMovieRef : null}
-            />
+              ref={movies.length === i + 1 ? lastMovieRef : null}
+            >
+              <MovieCard movie={movie} handler="general" />
+            </div>
           )
         )}
       </div>
     </ContentWrapper>
   );
-});
+}
 
 export default MovieList;

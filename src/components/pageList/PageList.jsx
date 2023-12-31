@@ -49,8 +49,13 @@ function PageList({ data, handler, onClear }) {
           <div className="page-list-grid">
             {data
               ?.filter((_, i) => i !== 0)
-              .map((movie) => (
-                <MovieCard movie={movie} handler={handler} data={data} />
+              .map((movie, i) => (
+                <MovieCard
+                  key={i}
+                  movie={movie}
+                  handler={handler}
+                  data={data}
+                />
               ))}
           </div>
         </>
