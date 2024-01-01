@@ -1,0 +1,16 @@
+@use "../../scss/" as *;
+
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  transition: all 0.4s;
+  cursor: pointer;
+  z-index: 999;
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+}

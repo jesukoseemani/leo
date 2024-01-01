@@ -1,0 +1,49 @@
+@use "../../scss/" as *;
+
+.wrapper {
+  @include flex(row, center, center);
+  padding: 8;
+  background-color: $white;
+  color: $black;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+}
+
+.content-box {
+  display: none;
+  background-color: $white;
+  border-radius: 8px;
+  padding: 8px;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  border: 1px solid rgb(11, 10, 10);
+  color: $black;
+  width: 150px;
+  z-index: 200;
+}
+
+.content-link {
+  margin: 6px 0;
+  list-style: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: $black;
+
+  &:hover {
+    color: $black;
+  }
+}
+
+.line {
+  border-bottom: 1px solid rgb(11, 10, 10);
+  width: 100%;
+}
+
+.active {
+  @include flex(column, center, flex-start);
+}

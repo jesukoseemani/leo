@@ -62,9 +62,9 @@ To run the project locally, follow these steps:
 6. scss: This is where everything partaining to scss features then each component contains its attached scss file.
 7. services: This is where data communication between the app and backend system is managed. the services holds all apis.
 8. store: This is where all redux(state management) implementations are managed.
-9. test: Contains the test files.
-10. utils: This is where all related functions handling common goals are managed and all other dependencies.
-11. App: The root start of the app.
+9. utils: This is where all related functions handling common goals are managed and all other dependencies.
+10. App: The root start of the app.
+
 
 - I refactored the routing system and i made use of the new component included in react router 6 which is <Outlet /> and gives the ability to have a shared layout and render other route. This usecase helps because the navbar component is need accross the application.
 
@@ -119,6 +119,8 @@ The hook takes in the url, fires the endpoint , push a toast message and returns
 ### Issues
 
 React 18.2 has issues with useEffect calling twice and its recomended by the official docs to oot for other third party libraries. Tho i found a kinda working fix but using ref to mount and unmount. if the piece of code is found in my useEffect, this is why.
+
+tmdb API behaves wanky with the error response.
 
 ### Recomendation
 

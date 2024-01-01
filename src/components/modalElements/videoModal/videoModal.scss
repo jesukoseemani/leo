@@ -1,0 +1,14 @@
+@use "../../../scss/" as *;
+
+.close {
+  @include flex(row, center, flex-end);
+  width: 100%;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.loading-state {
+  @include flex(row, center, center);
+  width: 100%;
+  height: 100%;
+}
