@@ -114,7 +114,7 @@ The hook takes in the url, fires the endpoint , push a toast message and returns
 
 - I then moved to creating each components that collectively makes a page. movie card, content wrapper, buttons, rating display, navbar, movie banner, empty state.
 
-- Watchlater and favourite looks same. So what was done was to create a single component that just takes in props, which is the data then the handler to differentiate them and a function to clear the data.
+- Watchlater and favourite looks same. So what was done was to create a single component that just takes in props, which is the data then the handler to differentiate them and a function to clear the data. I persisted the watch later and favourite data in session storage using redux persist for better user experience.
 
 ### Issues
 
