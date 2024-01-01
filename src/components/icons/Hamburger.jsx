@@ -9,7 +9,7 @@ function Hamburger() {
     >
       <path
         fill="none"
-        stroke="currentColor"
+        stroke="black"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="32"

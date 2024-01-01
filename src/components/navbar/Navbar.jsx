@@ -28,7 +28,7 @@ function Navbar() {
       if (query.length > 1) {
         dispatch(fetchMovies(ENDPOINT_SEARCH(query)));
       } else {
-        dispatch(fetchMovies(ENDPOINT_DISCOVER));
+        dispatch(fetchMovies(ENDPOINT_DISCOVER(1)));
       }
     }
   };
