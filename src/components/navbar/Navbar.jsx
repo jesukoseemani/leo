@@ -11,10 +11,12 @@ import {
 } from "../../services/apis/movieListApi";
 
 import "./navbar.scss";
+
 function Navbar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
+
   const { pathname } = location;
   const { starredMovies } = useSelector((state) => state.starred);
   const { watchLaterMovies } = useSelector((state) => state.watchLater);

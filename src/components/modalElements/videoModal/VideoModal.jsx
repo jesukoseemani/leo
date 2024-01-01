@@ -20,11 +20,11 @@ function VideoModal({ id, onClose }) {
     }
   };
   return (
-    <div className="wrapper">
+    <div style={{ width: "100%", height: "100%" }}>
       {isPending ? (
         <h1 className="loading-state">LOADING...</h1>
       ) : (
-        <div className="wrapper">
+        <div style={{ width: "100%", height: "100%" }}>
           <div className="close" onClick={onClose}>
             <ModalCloseIcon />
           </div>
