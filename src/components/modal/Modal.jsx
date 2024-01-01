@@ -17,7 +17,7 @@ function Modal() {
 
   return ReactDom.createPortal(
     <>
-      <div className="overlay" />
+      <div className="overlay-modal" />
       <div className="modal">
         {" "}
         <ModalComponent

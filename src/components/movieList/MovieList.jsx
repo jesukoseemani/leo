@@ -1,5 +1,4 @@
 import React from "react";
-import GridIcon from "../../components/icons/GridIcon";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import MovieCard from "../../components/movieCard/MovieCard";
 import Skeleton from "../../components/skeleton/Skeleton";
@@ -24,7 +23,6 @@ function MovieList({ loadMorePage }) {
     <ContentWrapper>
       <div className="movie-list-header">
         <h3 className="movie-list-heading">Movies</h3>
-        <GridIcon />
       </div>
       <div className="movie-list-grid">
         {uniqueData(movies)?.map((movie, i) =>

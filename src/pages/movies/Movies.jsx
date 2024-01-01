@@ -7,6 +7,7 @@ import { isEmpty } from "../../utils/helperFunction";
 import MovieList from "../../components/movieList/MovieList";
 import ScrollToTop from "../../components/scrollToTop/ScrollToTop";
 import useScroll from "../../hooks/useScroll";
+import EmptyState from "../../components/emptyState/EmptyState";
 
 function Movies() {
   const dispatch = useDispatch();
@@ -31,12 +32,21 @@ function Movies() {
 
   return (
     <>
-      <MovieHeader
-        data={isEmpty(movies) ? {} : movies[0]}
-        fetchStatus={fetchStatus}
-      />
-      <MovieList loadMorePage={loadMorePage} />
-      <ScrollToTop scroll={scroll} />
+      {isEmpty(movies) && fetchStatus === "success" ? (
+        <EmptyState
+          desc="Sorry, we couldn't find any match"
+          isSearchEmpty={true}
+        />
+      ) : (
+        <>
+          <MovieHeader
+            data={isEmpty(movies) ? {} : movies[0]}
+            fetchStatus={fetchStatus}
+          />
+          <MovieList loadMorePage={loadMorePage} />
+          <ScrollToTop scroll={scroll} />
+        </>
+      )}
     </>
   );
 }

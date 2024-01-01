@@ -120,6 +120,8 @@ The hook takes in the url, fires the endpoint , push a toast message and returns
 
 React 18.2 has issues with useEffect calling twice and its recomended by the official docs to oot for other third party libraries. Tho i found a kinda working fix but using ref to mount and unmount. if the piece of code is found in my useEffect, this is why.
 
+tmdb API behaves wanky with the error response.
+
 ### Recomendation
 
 - Consider writing the project in typescript for typing which helps with less bugs and better collaboration experience. I used **propType** as an alternative.
