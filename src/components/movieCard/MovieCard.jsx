@@ -189,7 +189,7 @@ function MovieCard({ movie, handler = "general", data }) {
       </div>
       <div className="movie-content-wrapper">
         <h3>{movie?.title}</h3>
-        <div onClick={handleLike}>
+        <div data-testid="like-icon" onClick={handleLike}>
           <LoveIcon color={isInFavList ? "#D40D1F" : ""} />
         </div>
       </div>
