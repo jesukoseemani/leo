@@ -11,6 +11,7 @@ function WatchLater() {
       data={watchLaterMovies}
       handler="watchlist"
       onClear={removeAllWatchLater}
+      data-testid="ml"
     />
   );
 }

@@ -11,6 +11,7 @@ function Favourites() {
       data={starredMovies}
       handler="favourite"
       onClear={clearAllStarred}
+      data-testid="fv"
     />
   );
 }

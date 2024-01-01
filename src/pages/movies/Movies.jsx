@@ -38,14 +38,14 @@ function Movies() {
           isSearchEmpty={true}
         />
       ) : (
-        <>
+        <div data-testid="movie-pg">
           <MovieHeader
             data={isEmpty(movies) ? {} : movies[0]}
             fetchStatus={fetchStatus}
           />
           <MovieList loadMorePage={loadMorePage} />
           <ScrollToTop scroll={scroll} />
-        </>
+        </div>
       )}
     </>
   );
