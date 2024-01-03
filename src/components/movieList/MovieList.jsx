@@ -24,7 +24,7 @@ function MovieList({ loadMorePage }) {
       <div className="movie-list-header">
         <h3 className="movie-list-heading">Movies</h3>
       </div>
-      <div className="movie-list-grid">
+      <div className="movie-list-grid" data-testid="movie-list-grid">
         {uniqueData(movies)?.map((movie, i) =>
           fetchStatus === "loading" ? (
             <Skeleton

@@ -9,7 +9,7 @@ function EmptyState({ desc, title, isSearchEmpty = false }) {
   return (
     <div className="empty-state">
       <img src={Empty} alt="" />
-      <p>{desc}</p>
+      <p data-testid="empty_list_desc">{desc}</p>
       {isSearchEmpty ? (
         <p>please, search for another movie</p>
       ) : (

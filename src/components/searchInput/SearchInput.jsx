@@ -25,6 +25,7 @@ function SearchInput({ onSearch }) {
     <div className="input-wrapper">
       <input
         type="text"
+        role="searchbox"
         value={value ?? ""}
         onChange={(e) => setSearchParams({ query: e.target.value })}
         placeholder="Search Movies"

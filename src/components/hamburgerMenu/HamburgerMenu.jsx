@@ -18,7 +18,7 @@ function HamburgerMenu() {
       <Hamburger />
 
       <div className={active ? "content-box active" : "content-box"}>
-        <Link to="/favorites" className="content-link">
+        <Link to="/favourites" className="content-link">
           FAVOURITES
         </Link>
         <div className="line"></div>
