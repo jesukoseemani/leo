@@ -65,12 +65,11 @@ To run the project locally, follow these steps:
 9. utils: This is where all related functions handling common goals are managed and all other dependencies.
 10. App: The root start of the app.
 
-
 - I refactored the routing system and i made use of the new component included in react router 6 which is <Outlet /> and gives the ability to have a shared layout and render other route. This usecase helps because the navbar component is need accross the application.
 
 * I reviewed the task and started with pieces of code that will be useful while working. i realized i will need a modal feature, toast feature, a scroll feature, a skeleton loader, a click outside menu feature, a debounce feature doing search, an api fetch feature.
 
-* i created them with core javascript and react standards with using a third party library
+* i created them with core javascript and react standards without using a third party library
 
 # Modal
 
@@ -126,4 +125,3 @@ tmdb API behaves wanky with the error response.
 
 - Consider writing the project in typescript for typing which helps with less bugs and better collaboration experience. I used **propType** as an alternative.
 - Consider using axios. axios reduces hurdles out of the box
-
