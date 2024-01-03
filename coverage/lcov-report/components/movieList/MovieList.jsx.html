@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for pages/movies/Movies.jsx</title>
+    <title>Code coverage report for components/movieList/MovieList.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">pages/movies</a> Movies.jsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/movieList</a> MovieList.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.3% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/13</span>
+                <span class='fraction'>7/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.5% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/8</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.66% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/12</span>
+                <span class='fraction'>7/8</span>
             </div>
         
             
@@ -117,7 +117,9 @@
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -129,26 +131,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -171,60 +169,68 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useEffect, useRef } from "react";
-import { ENDPOINT_DISCOVER } from "../../services/apis/movieListApi";
-import { fetchMovies } from "../../store/moviesSlice";
-import { useDispatch, useSelector } from "react-redux";
-import MovieHeader from "../../components/movieHeader/MovieHeader";
-import { isEmpty } from "../../utils/helperFunction";
-import MovieList from "../../components/movieList/MovieList";
-import ScrollToTop from "../../components/scrollToTop/ScrollToTop";
-import useScroll from "../../hooks/useScroll";
-import EmptyState from "../../components/emptyState/EmptyState";
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
+import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
+import MovieCard from "../../components/movieCard/MovieCard";
+import Skeleton from "../../components/skeleton/Skeleton";
+import PropTypes from "prop-types";
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
+import { useSelector } from "react-redux";
+import { uniqueData } from "../../utils/helperFunction";
 &nbsp;
-function Movies() {
-  const dispatch = useDispatch();
-  const scroll = useScroll();
-  const effectRan = useRef(false);
+import "./movieList.scss";
 &nbsp;
-  const { movies, fetchStatus, page } = useSelector((state) =&gt; state.movies);
-&nbsp;
-  useEffect(() =&gt; {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (effectRan.current === false) {
-      dispatch(fetchMovies(ENDPOINT_DISCOVER(page)));
-&nbsp;
-      return () =&gt; {
-        effectRan.current = true;
-      };
-    }
-  }, [dispatch, page]);
-&nbsp;
-  const loadMorePage = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-<span class="cstat-no" title="statement not covered" >    dispatch(fetchMovies(ENDPOINT_DISCOVER(page + 1)));</span>
-  };
+function MovieList({ loadMorePage }) {
+  const { movies, fetchStatus, hasNextPage } = useSelector(
+    (state) =&gt; state.movies
+  );
+  const loading = fetchStatus === "loading";
+  const lastMovieRef = useIntersectionObserver(
+<span class="fstat-no" title="function not covered" >    ()</span> =&gt; <span class="cstat-no" title="statement not covered" >loadMorePage(),</span>
+    [hasNextPage, !loading]
+  );
 &nbsp;
   return (
-    &lt;&gt;
-      {isEmpty(movies) &amp;&amp; fetchStatus === "success" ? (
-<span class="branch-0 cbranch-no" title="branch not covered" >        &lt;EmptyState</span>
-          desc="Sorry, we couldn't find any match"
-          isSearchEmpty={true}
-        /&gt;
-      ) : (
-        &lt;div data-testid="movie-pg"&gt;
-          &lt;MovieHeader
-            data={isEmpty(movies) ? {} : <span class="branch-1 cbranch-no" title="branch not covered" >movies[0]}</span>
-            fetchStatus={fetchStatus}
-          /&gt;
-          &lt;MovieList loadMorePage={loadMorePage} /&gt;
-          &lt;ScrollToTop scroll={scroll} /&gt;
-        &lt;/div&gt;
-      )}
-    &lt;/&gt;
+    &lt;ContentWrapper&gt;
+      &lt;div className="movie-list-header"&gt;
+        &lt;h3 className="movie-list-heading"&gt;Movies&lt;/h3&gt;
+      &lt;/div&gt;
+      &lt;div className="movie-list-grid" data-testid="movie-list-grid"&gt;
+        {uniqueData(movies)?.map((movie, i) =&gt;
+          fetchStatus === "loading" ? (
+<span class="branch-0 cbranch-no" title="branch not covered" >            &lt;Skeleton</span>
+              key={movie.id}
+              styleObj={{
+                height: "480px",
+                width: "282px",
+                borderRadius: "4px",
+              }}
+            /&gt;
+          ) : (
+            &lt;div
+              key={movie.id}
+              ref={movies.length === i + 1 ? lastMovieRef : null}
+            &gt;
+              &lt;MovieCard movie={movie} handler="general" /&gt;
+            &lt;/div&gt;
+          )
+        )}
+      &lt;/div&gt;
+    &lt;/ContentWrapper&gt;
   );
 }
 &nbsp;
-export default Movies;
+MovieList.propTypes = {
+  loadMorePage: PropTypes.func.isRequired,
+};
+&nbsp;
+export default MovieList;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

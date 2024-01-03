@@ -9,7 +9,7 @@ function Favourites() {
   return (
     <PageList
       data={starredMovies}
-      handler="favourite"
+      handler="favourites"
       onClear={clearAllStarred}
       data-testid="fv"
     />

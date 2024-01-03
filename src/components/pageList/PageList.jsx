@@ -43,7 +43,7 @@ function PageList({ data, handler, onClear }) {
           title={handler}
         />
       ) : (
-        <>
+        <div data-testid="page-list-container">
           <div className="page-list-banner">
             <MovieBanner movie={data[0]} />
           </div>
@@ -60,7 +60,7 @@ function PageList({ data, handler, onClear }) {
                 />
               ))}
           </div>
-        </>
+        </div>
       )}
     </ContentWrapper>
   );
@@ -77,7 +77,7 @@ PageList.propTypes = {
       backdrop_path: PropTypes.string,
     })
   ),
-  handler: PropTypes.oneOf(["favourite", "watchlist"]).isRequired,
+  handler: PropTypes.oneOf(["favourites", "watchlist"]).isRequired,
   onClear: PropTypes.func.isRequired,
 };
 

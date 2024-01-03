@@ -125,16 +125,16 @@ function MovieCard({ movie, handler = "general", data }) {
           alt=""
         />
         <div className={`movie-desc ${handler !== "general" && "movie-index"}`}>
-          <div className="movie-rating">
+          <div className="movie-rating" data-testid="movie-card-rating">
             <RatingIcon />
             &nbsp;{movie?.vote_average}
           </div>
           {handler !== "general" && (
             <div className="movie-delete">
-              <div onClick={deleteHandler}>
+              <div onClick={deleteHandler} data-testid="remove-movie-icon">
                 <DeleteIcon />
               </div>
-              <div onClick={streamHandler}>
+              <div onClick={streamHandler} data-testid="play-movie-icon">
                 <PlayIcon color="green" width={16} height={16} />
               </div>
             </div>

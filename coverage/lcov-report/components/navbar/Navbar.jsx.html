@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">12.5% </span>
+                <span class="strong">93.75% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/16</span>
+                <span class='fraction'>15/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>5/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">14.28% </span>
+                <span class="strong">92.85% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/14</span>
+                <span class='fraction'>13/14</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -135,7 +135,8 @@
 <a name='L70'></a><a href='#L70'>70</a>
 <a name='L71'></a><a href='#L71'>71</a>
 <a name='L72'></a><a href='#L72'>72</a>
-<a name='L73'></a><a href='#L73'>73</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -150,28 +151,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">27x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -224,49 +226,50 @@ import "./navbar.scss";
 function Navbar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const location = <span class="cstat-no" title="statement not covered" >useLocation();</span>
+  const location = useLocation();
 &nbsp;
-  const { pathname } = <span class="cstat-no" title="statement not covered" >location;</span>
-  const { starredMovies } = <span class="cstat-no" title="statement not covered" >useSelector(<span class="fstat-no" title="function not covered" >(s</span>tate) =&gt; <span class="cstat-no" title="statement not covered" >state.starred)</span>;</span>
-  const { watchLaterMovies } = <span class="cstat-no" title="statement not covered" >useSelector(<span class="fstat-no" title="function not covered" >(s</span>tate) =&gt; <span class="cstat-no" title="statement not covered" >state.watchLater)</span>;</span>
+  const { pathname } = location;
+  const { starredMovies } = useSelector((state) =&gt; state.starred);
+  const { watchLaterMovies } = useSelector((state) =&gt; state.watchLater);
 &nbsp;
-  const routeToHome = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    navigate("/movies");</span>
+  const routeToHome = () =&gt; {
+    navigate("/movies");
   };
 &nbsp;
-  const onSearch = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(q</span>uery) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (query) {</span>
-<span class="cstat-no" title="statement not covered" >      if (query.length &gt; 1) {</span>
-<span class="cstat-no" title="statement not covered" >        dispatch(fetchMovies(ENDPOINT_SEARCH(query)));</span>
-      } else {
+  const onSearch = (query) =&gt; {
+    if (query) {
+      if (query.length &gt; 1) {
+        dispatch(fetchMovies(ENDPOINT_SEARCH(query)));
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >        dispatch(fetchMovies(ENDPOINT_DISCOVER(1)));</span>
       }
     }
   };
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;ContentWrapper&gt;
       &lt;div className="nav-wrapper"&gt;
-        &lt;h3 onClick={routeToHome} className="nav-logo"&gt;
+        &lt;h3 onClick={routeToHome} className="nav-logo" role="banner"&gt;
           ML
         &lt;/h3&gt;
         &lt;div className="nav-search"&gt;
           &lt;SearchInput onSearch={onSearch} /&gt;
         &lt;/div&gt;
-        &lt;div className="nav-link-wrapper"&gt;
+        &lt;div className="nav-link-wrapper" data-testid="navbar-link-container"&gt;
           &lt;NavLink
             activeclassname="active"
             className="nav-link"
             to="/favourites"
+            role="link"
           &gt;
             FAVOURITES
-            {starredMovies?.length &gt; 0 &amp;&amp; pathname !== "/favourites" &amp;&amp; (
-              &lt;span className="number-tag"&gt;{starredMovies?.length}&lt;/span&gt;
+            {starredMovies?.length &gt; 0 &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >pathname !== "/favourites" </span>&amp;&amp; (
+<span class="branch-2 cbranch-no" title="branch not covered" >              &lt;span className="number-tag"&gt;{starredMovies?.length}&lt;/span&gt;</span>
             )}
           &lt;/NavLink&gt;
           &lt;NavLink className="nav-link" to="/watch-later"&gt;
             WATCH LATER
-            {watchLaterMovies?.length &gt; 0 &amp;&amp; pathname !== "/watch-later" &amp;&amp; (
-              &lt;span className="number-tag"&gt;{watchLaterMovies?.length}&lt;/span&gt;
+            {watchLaterMovies?.length &gt; 0 &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >pathname !== "/watch-later" </span>&amp;&amp; (
+<span class="branch-2 cbranch-no" title="branch not covered" >              &lt;span className="number-tag"&gt;{watchLaterMovies?.length}&lt;/span&gt;</span>
             )}
           &lt;/NavLink&gt;
         &lt;/div&gt;
@@ -286,7 +289,7 @@ export default Navbar;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-01-01T22:56:22.638Z
+                at 2024-01-03T14:03:55.691Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

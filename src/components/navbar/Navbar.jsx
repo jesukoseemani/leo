@@ -37,17 +37,18 @@ function Navbar() {
   return (
     <ContentWrapper>
       <div className="nav-wrapper">
-        <h3 onClick={routeToHome} className="nav-logo">
+        <h3 onClick={routeToHome} className="nav-logo" role="banner">
           ML
         </h3>
         <div className="nav-search">
           <SearchInput onSearch={onSearch} />
         </div>
-        <div className="nav-link-wrapper">
+        <div className="nav-link-wrapper" data-testid="navbar-link-container">
           <NavLink
             activeclassname="active"
             className="nav-link"
             to="/favourites"
+            role="link"
           >
             FAVOURITES
             {starredMovies?.length > 0 && pathname !== "/favourites" && (
