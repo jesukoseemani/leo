@@ -127,7 +127,7 @@ function MovieCard({ movie, handler = "general", data }) {
         <div className={`movie-desc ${handler !== "general" && "movie-index"}`}>
           <div className="movie-rating" data-testid="movie-card-rating">
             <RatingIcon />
-            &nbsp;{movie?.vote_average}
+            &nbsp;{movie?.vote_average?.toFixed(1)}
           </div>
           {handler !== "general" && (
             <div className="movie-delete">
